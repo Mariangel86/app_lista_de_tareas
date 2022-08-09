@@ -1,21 +1,23 @@
 import React, {useState} from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCheckSquare,faTimes,faEdit} from '@fortawesome/free-solid-svg-icons';
+import {faCheckSquare,faTimes,faEdit, faSquare} from '@fortawesome/free-solid-svg-icons';
 
-const Tarea = ({tarea}) => {
+const Tarea = ({tarea, toggleCompletadas, editarTarea,borrarTarea}) => {
 
     const [editandoTarea, cambiarEditandoTarea]= useState (false);
     const [nuevaTarea, CambiarNuevaTarea] = useState (tarea.texto);
     const handleSubmit= (e)=> {
         e.preventDefault ();
+        editarTarea(tarea.id, nuevaTarea);
         cambiarEditandoTarea (false);
     }
 
     return (
         <li className="Lista-tareas__tareas">
             <FontAwesomeIcon
-             icon = {faCheckSquare} 
+             icon = {tarea.completadas ? faCheckSquare : faSquare} 
              className= "lista-tareas__icono lista-tareas__icono-check"
+             onClick={()=>{toggleCompletadas= (tarea.id)}}
              />
            <div 
             className="Lista-tareas__texto"> 
@@ -35,15 +37,17 @@ const Tarea = ({tarea}) => {
                : tarea.texto
                }
            </div>
+           
            <div className="lista-tareas__contenedor-botones">
                <FontAwesomeIcon 
            icon = {faEdit} 
-           classname= "lista-tareas__icono lista-tareas__icono-accion"
+           className= "lista-tareas__icono lista-tareas__icono-accion"
            onClick={cambiarEditandoTarea}
            />
            <FontAwesomeIcon 
             icon = {faTimes}
-            classname= "lista-tareas__icono lista-tareas__icono-accion" />
+            className= "lista-tareas__icono lista-tareas__icono-accion" 
+            onClick={()=> borrarTarea (tarea.id)}/>
            
            </div>
             </li>
