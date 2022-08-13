@@ -1,11 +1,11 @@
 import React from "react";
 import Tarea from "./Tarea";
 
-const ListaTareas = ({tareas,cambiarTareas, mostrarCompletadas}) => {
-    const toggleCompletadas= (id) =>{
+const ListaTareas = ({tareas, cambiarTareas, mostrarCompletadas}) => {
+    const toggleCompletadas= (id) => {
         cambiarTareas(tareas.map((tarea) => {
-            if (tarea.id === id) {
-        return {...tarea,completadas: ! tarea.completadas}
+            if(tarea.id === id){
+        return {...tarea, completadas: ! tarea.completadas}
     }
     return tareas;
     }));
@@ -23,11 +23,11 @@ const borrarTarea = (id) => {
         if(tarea.id !== id) {
         return tarea;
         }
-        return;
-    }));
+        return ;
+     }));
 }
     return ( 
-            <ul className="Lista-tareas">
+            <ul className="lista-tareas">
             {
             tareas.length > 0 ? tareas.map=((tarea)=> {
                 if (mostrarCompletadas) {
