@@ -2,54 +2,53 @@ import React from "react";
 import Tarea from "./Tarea";
 
 const ListaTareas = ({tareas, cambiarTareas, mostrarCompletadas}) => {
-    const toggleCompletadas= (id) => {
+    const toggleCompletadas = (id) => {
         cambiarTareas(tareas.map((tarea) => {
             if(tarea.id === id){
-        return {...tarea, completadas: ! tarea.completadas}
+        return {...tarea, completadas: !tarea.completadas}
     }
-    return tareas;
+    return tarea;
     }));
 }
-    const editarTarea= (id) =>{
+const editarTarea= (id, nuevoTexto) =>{
         cambiarTareas(tareas.map((tarea) => {
-            if (tarea.id === id) {
-        return {...tarea,completadas: ! tarea.completadas}
+         if (tarea.id === id) {
+        return {...tarea, texto: nuevoTexto}
     }
-    return tareas;
+    return tarea;
     }));
 }
 const borrarTarea = (id) => {
     cambiarTareas(tareas.filter((tarea) => {
-        if(tarea.id !== id) {
+        if(tarea.id !==id) {
         return tarea;
         }
-        return ;
+        return;
      }));
 }
     return ( 
             <ul className="lista-tareas">
             {
-            tareas.length > 0 ? tareas.map=((tarea)=> {
+            tareas.length > 0 ? tareas.map((tarea)=> {
                 if (mostrarCompletadas) {
                 return  <Tarea 
                         key={tarea.id}
                         tarea={tarea}
                         toggleCompletadas = {toggleCompletadas}
                         editarTarea={editarTarea}
-                        borrarTarea= {borrarTarea}/>
-                    }
-                else if (!tarea.Completadas) {
+                        borrarTarea= {borrarTarea}
+                        />
+                    }else if (!tarea.Completadas){
                 return  <Tarea 
                         key={tarea.id}
                         tarea={tarea}
                         toggleCompletadas = {toggleCompletadas}
                         editarTarea={editarTarea}
-                        borrarTarea= {borrarTarea}/>
+                        borrarTarea= {borrarTarea}
+                        />
                     }
             return;
-
-
-            })
+         })
             : 
             <div className="lista-tareas__mensaje">
                 ..No hay tareas agregadas..

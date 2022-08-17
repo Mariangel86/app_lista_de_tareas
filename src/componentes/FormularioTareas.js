@@ -19,11 +19,12 @@ const FormularioTareas = ({tareas, cambiarTareas}) => {
             ...tareas,
             {
                 id: uuidv4(),
-                texto: "Nueva Tarea",
+                texto: inputTarea,
                 Completadas:false
             }
         ]
      );
+     cambiarInputTarea ('');
     }
 
   return (

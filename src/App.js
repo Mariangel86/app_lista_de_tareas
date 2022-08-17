@@ -6,6 +6,7 @@ import ListaTareas from './componentes/ListaTareas';
 
 const App = () => {
   const tareasGuardadas = localStorage.getItem('tareas') ? JSON.parse(localStorage.getItem('tareas')) : [];
+  
   const [tareas, cambiarTareas]= useState (tareasGuardadas);
    
     useEffect (() => {localStorage.setItem ('tareas', JSON.stringify (tareas));},[tareas]);
