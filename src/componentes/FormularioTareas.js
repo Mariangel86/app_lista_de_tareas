@@ -11,7 +11,7 @@ const FormularioTareas = ({tareas, cambiarTareas}) => {
         cambiarInputTarea(e.target.value);
     }
 
-    const handleSubmit= (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         cambiarTareas(
@@ -28,9 +28,9 @@ const FormularioTareas = ({tareas, cambiarTareas}) => {
     }
 
   return (
-    <div>
       <form action="" className="formulario-tareas" onSubmit={handleSubmit}>
-        <input type="text"
+        <input 
+        type="text"
         className="formulario-tareas__input"
         placeholder= "Escribe una tarea"
         value={inputTarea}
@@ -41,7 +41,6 @@ const FormularioTareas = ({tareas, cambiarTareas}) => {
         >
         <FontAwesomeIcon icon={faCirclePlus} className="formulario-tareas__icono-btn"/></button>
       </form>
-    </div>
   );
 }
 
