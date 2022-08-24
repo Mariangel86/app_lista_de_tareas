@@ -40,15 +40,15 @@ const Tarea = ({tarea, toggleCompletada, editarTarea, borrarTarea}) => {
            </div>
            <div className="lista-tareas__contenedor-botones">
                <FontAwesomeIcon 
-           icon ={faEdit} 
+           icon={faEdit} 
            className= "lista-tareas__icono lista-tareas__icono-accion"
            onClick={()=> cambiarEditandoTarea(!editandoTarea)}
            />
            
            <FontAwesomeIcon 
-            icon = {faTimes}
+            icon={faTimes}
             className= "lista-tareas__icono lista-tareas__icono-accion" 
-            onClick={()=> borrarTarea (tarea.id)}
+            onClick={()=> borrarTarea(tarea.id)}
             />
         </div>
      </li>

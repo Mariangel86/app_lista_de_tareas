@@ -13,7 +13,7 @@ const ListaTareas = ({tareas, cambiarTareas, mostrarCompletadas}) => {
 
 	const editarTarea = (id, nuevoTexto) => {
 		cambiarTareas(tareas.map((tarea) => {
-			if(tarea.id === id){
+			if(tarea.id ===id){
 				return {...tarea, texto: nuevoTexto}
 			}
 			return tarea;

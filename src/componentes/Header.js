@@ -13,18 +13,17 @@ cambiarMostrarCompletadas(!mostrarCompletadas);
         <h1 className="header__titulo">Lista de Tareas</h1>
         {mostrarCompletadas  ?
         <button
-          className="header__button"
+          className="header__boton"
           onClick={() => toggleCompletadas()}
           >
-            No mostrar completadas
-            <FontAwesomeIcon icon={faEyeSlash} className="header__icono-boton"/>
+             No Mostrar completadas
+            <FontAwesomeIcon icon={faEyeSlash} className="header__icono-boton" />
             </button>
         :
             <button 
-            className="header__button" 
+            className="header__boton" 
             onClick={() => toggleCompletadas()}
-            >
-            Mostrar completadas
+            > Mostrar completadas
             <FontAwesomeIcon icon={faEye} className="header__icono-boton"/>
             </button>
             }

@@ -6,7 +6,8 @@ import  {v4 as uuidv4} from 'uuid';
 
 const FormularioTareas = ({tareas, cambiarTareas}) => {
 
-    const [inputTarea, cambiarInputTarea]=useState('');
+    const [inputTarea, cambiarInputTarea]= useState('');
+    
     const handleInput =(e) => {
         cambiarInputTarea(e.target.value);
     }
@@ -34,9 +35,10 @@ const FormularioTareas = ({tareas, cambiarTareas}) => {
         className="formulario-tareas__input"
         placeholder= "Escribe una tarea"
         value={inputTarea}
-        onChange= {(e)=>handleInput(e)}/>
+        onChange= {(e) =>handleInput(e)}/>
 
-        <button type= "submit"
+        <button 
+        type= "submit"
         className="formulario-tareas__btn"
         >
         <FontAwesomeIcon icon={faCirclePlus} className="formulario-tareas__icono-btn"/></button>
